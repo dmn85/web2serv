@@ -1,0 +1,6 @@
+---
+- name: mkdir
+    file:
+     path: /home/secret/secfolder
+     state: directory
+     mode: 0755

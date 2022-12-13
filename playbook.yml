@@ -1,0 +1,29 @@
+---
+- name: Test playbook]
+  hosts: all
+  become: yes
+
+  vars:
+    message1: Var1
+    message2: Var2
+    secret  : Var3
+
+  tasks:
+  - name: print secret var
+    debug:
+     var: secret
+
+  - debug:
+     msg: "secret: {{ secret }}"
+
+  - set_fact: full_message="{{ message1}} {{ message2 }} with {{ secret }}"
+  - debug:
+     var:  full_message
+  - shell: uptime
+    register: results
+  - debug:
+      var: results.stdout
+  - shell: who
+    register: results
+  - debug:
+      var: results

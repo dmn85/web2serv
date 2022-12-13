@@ -1,0 +1,7 @@
+- name: touch1
+   copy:
+    dest: /home/secret/key1
+    content:
+      Text Line1, in key1
+      Text Line2, in key1
+      Text Line3, {{ mytext }}

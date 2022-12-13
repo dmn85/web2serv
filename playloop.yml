@@ -1,0 +1,30 @@
+---
+- name: loops
+  hosts: linux
+  become: yes
+
+  tasks:
+  - name:
+    debug: msg="loop {{ item }}"
+    loop:
+      - "RedHat"
+      - "Ubuntu"
+
+  - name: loop until
+    shell: echo -n Z >> loopuntil.txt && cat loopuntil.txt
+    register: output
+    retries: 5
+    until: output.stdout.find("ZZZ") == false
+
+  - name: print stdout
+    debug:
+      var: output.stdout
+
+#  - name: install packages
+#    yum: name={{ item }} state=installed
+#    loop:
+#      - python latest
+#      - nginx latest
+#      - tree
+#      - net-tools
+#      - mysql-client

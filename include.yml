@@ -1,0 +1,14 @@
+---
+- name: Include play
+  hosts: all
+  become: yes
+
+  vars:
+   mytext: "just for include"
+
+  tasks:
+  - name: ping test
+    ping:
+
+  - include: create_items1. yml
+  - include: create_items2.yml

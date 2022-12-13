@@ -1,0 +1,20 @@
+---
+- name: handling
+  hosts: ALL_SERVERS
+  become: yes
+  any_errors_fatal: true
+  tasks:
+  - name: task 1
+    yum: name=tree state=latest
+#    ignore_errors: yes
+
+  - name: task 2
+    shell: task2
+    register: results
+#    failed_when: "'task' in results.stdout"
+    failed_when: results.rc == 0 
+  - debug:
+     var: results
+  - name: task3
+    shell: echo task3
+    register: results
