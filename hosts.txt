@@ -1,4 +1,4 @@
-PROD_SERVERS_WEB]
+[PROD_SERVERS_WEB]
 linux ansible_host=158.160.11.198 owner=dmn85
 
 [TEST_SERVERS_WEB]
