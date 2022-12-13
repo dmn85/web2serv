@@ -1,8 +1,8 @@
 [PROD_SERVERS_WEB]
-linux ansible_host=158.160.21.28 owner=dmn
+linux ansible_host=158.160.11.198 owner=dmn
 
 [TEST_SERVERS_WEB]
-yace ansible_host=158.160.5.179 owner=dmn85
+yace ansible_host=51.250.24.52 owner=dmn85
 
 [ALL_SERVERS:children]
 PROD_SERVERS_WEB
